@@ -12,9 +12,16 @@ ns1:fluid1 a ns1:Fluid,
         owl:NamedIndividual ;
     ns1:hasVelocityField ns1:vfield1 .
 
+ns1:hasVelocityField a owl:ObjectProperty ;
+    rdfs:comment "流体拥有速度场"^^xsd:string ;
+    rdfs:domain ns1:Fluid ;
+    rdfs:range ns1:VelocityField .
+
 ns1:vfield1 a ns1:DivergenceFreeVelocityField,
         ns1:VelocityField,
         owl:NamedIndividual .
+
+ns1:DivergenceFreeVelocityField a owl:Class .
 
 ns1:IncompressibleFluid a owl:Class ;
     rdfs:subClassOf ns1:Fluid ;
@@ -26,36 +33,5 @@ ns1:Fluid a owl:Class ;
     owl:equivalentClass [ a owl:Restriction ;
             owl:onProperty ns1:hasVelocityField ;
             owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
-        [ a owl:Restriction ;
-            owl:onProperty ns1:hasVelocityField ;
-            owl:someValuesFrom ns1:DivergenceFreeVelocityField ],
         ns1:IncompressibleFluid .
-
-ns1:hasVelocityField a owl:ObjectProperty ;
-    rdfs:comment "流体拥有速度场"^^xsd:string ;
-    rdfs:domain ns1:Fluid ;
-    rdfs:range ns1:VelocityField .
-
-ns1:DivergenceFreeVelocityField a owl:Class .
 
