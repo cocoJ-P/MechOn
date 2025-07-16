@@ -4,19 +4,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.mechon.org/demo#> .
 
 #################################################################
 #  --- Facet Demo 1: Tensor classification ---
 #################################################################
-
-# 给出秩=2 + 对称性=Symmetric，不指定类型
-ex:sigma_1
-    mat:hasTensorOrder 2 ;
+ex:sigma_1 a owl:NamedIndividual ;
+    mat:hasTensorOrder "2"^^xsd:nonNegativeInteger ;
     mat:hasMatrixSymType mat:Symmetric .
 
-# 给出秩=2 + AntiSymmetric
-ex:omega_tens
-    mat:hasTensorOrder 2 ;
+ex:omega_tens a owl:NamedIndividual ;
+    mat:hasTensorOrder "2"^^xsd:nonNegativeInteger ;
     mat:hasMatrixSymType mat:AntiSymmetric .
 
 #################################################################
@@ -24,7 +22,7 @@ ex:omega_tens
 #################################################################
 
 # 仅声明：这是个 Field + VelocityVector；不指定 VelocityField
-ex:U_demo
+ex:U_demo a owl:NamedIndividual ;
     a mat:Field , mat:VelocityVector .
 
 #################################################################
@@ -32,13 +30,13 @@ ex:U_demo
 #################################################################
 
 # 定义具体的圆柱坐标系 & 边界补丁（类型已给出）
-ex:PipeCS a geo:CylindricalCS .
-ex:PipeInlet  a geo:InletBoundary .
-ex:PipeOutlet a geo:OutletBoundary .
-ex:PipeWall   a geo:WallBoundary .
+ex:PipeCS     a owl:NamedIndividual , geo:CylindricalCS .
+ex:PipeInlet  a owl:NamedIndividual , geo:InletBoundary .
+ex:PipeOutlet a owl:NamedIndividual , geo:OutletBoundary .
+ex:PipeWall   a owl:NamedIndividual , geo:WallBoundary .
 
 # 主体：不显式类型 PipeDomain，仅声明 facets
-ex:PipeCase
+ex:PipeCase a owl:NamedIndividual ;
     geo:hasCoordinateSystem ex:PipeCS ;
     geo:hasBoundaryPatch    ex:PipeInlet ,
                              ex:PipeOutlet ,
