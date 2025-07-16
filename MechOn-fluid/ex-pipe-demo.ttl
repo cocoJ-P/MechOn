@@ -1,0 +1,45 @@
+@prefix ex:  <https://purl.mechon.org/demo#> .
+@prefix mat: <https://purl.mechon.org/ont/mat#> .
+@prefix geo: <https://purl.mechon.org/ont/geo#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+#  --- Facet Demo 1: Tensor classification ---
+#################################################################
+
+# 给出秩=2 + 对称性=Symmetric，不指定类型
+ex:sigma_1
+    mat:hasTensorOrder 2 ;
+    mat:hasMatrixSymType mat:Symmetric .
+
+# 给出秩=2 + AntiSymmetric
+ex:omega_tens
+    mat:hasTensorOrder 2 ;
+    mat:hasMatrixSymType mat:AntiSymmetric .
+
+#################################################################
+#  --- Facet Demo 2: VelocityField 推理 ---
+#################################################################
+
+# 仅声明：这是个 Field + VelocityVector；不指定 VelocityField
+ex:U_demo
+    a mat:Field , mat:VelocityVector .
+
+#################################################################
+#  --- Facet Demo 3: PipeDomain 自动识别 ---
+#################################################################
+
+# 定义具体的圆柱坐标系 & 边界补丁（类型已给出）
+ex:PipeCS a geo:CylindricalCS .
+ex:PipeInlet  a geo:InletBoundary .
+ex:PipeOutlet a geo:OutletBoundary .
+ex:PipeWall   a geo:WallBoundary .
+
+# 主体：不显式类型 PipeDomain，仅声明 facets
+ex:PipeCase
+    geo:hasCoordinateSystem ex:PipeCS ;
+    geo:hasBoundaryPatch    ex:PipeInlet ,
+                             ex:PipeOutlet ,
+                             ex:PipeWall .
