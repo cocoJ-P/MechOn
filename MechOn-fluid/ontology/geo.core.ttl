@@ -133,10 +133,16 @@ geo:OutletBoundary rdf:type owl:Class ;
 
 ###  https://purl.mechon.org/ont/geo#PipeDomain
 geo:PipeDomain rdf:type owl:Class ;
-               rdfs:subClassOf geo:Domain ,
-        [ a owl:Restriction ;
-          owl:onProperty geo:hasCoordinateSystem ;
-          owl:someValuesFrom geo:CylindricalCS ] .
+               owl:equivalentClass [
+        owl:intersectionOf (
+            geo:Domain
+            [ a owl:Restriction ; owl:onProperty geo:hasCoordinateSystem ; owl:someValuesFrom geo:CylindricalCS ]
+            [ a owl:Restriction ; owl:onProperty geo:hasBoundaryPatch ;   owl:someValuesFrom geo:InletBoundary ]
+            [ a owl:Restriction ; owl:onProperty geo:hasBoundaryPatch ;   owl:someValuesFrom geo:OutletBoundary ]
+            [ a owl:Restriction ; owl:onProperty geo:hasBoundaryPatch ;   owl:someValuesFrom geo:WallBoundary ]
+        )
+    ] ;
+    rdfs:label "Pipe flow domain"@en .
 
 
 ###  https://purl.mechon.org/ont/geo#ReferenceFrame
