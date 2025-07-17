@@ -7,7 +7,7 @@
 @base <https://purl.mechon.org/demo#> .
 
 <https://purl.mechon.org/demo> a owl:Ontology ;
-    owl:imports <https://purl.mechon.org/ont/fluid/0.1.0> ,
+    owl:imports <https://purl.mechon.org/ont/fluid/0.1.0> .
 #                <https://purl.mechon.org/ont/geo/0.1.0> .
 
 #################################################################

@@ -140,10 +140,15 @@ mat:SecondOrderTensor rdf:type owl:Class ;
 
 ###  https://purl.mechon.org/ont/mat#StrainRateTensor
 mat:StrainRateTensor rdf:type owl:Class ;
-		owl:equivalentClass [owl:intersectionOf ( mat:SecondOrderTensor
-								[rdf:type owl:Restriction ;
-								  owl:onProperty mat:hasMatrixSymType ;
-								  owl:hasValue mat:Symmetric ] ) ] .
+                     owl:equivalentClass [ owl:intersectionOf ( mat:SecondOrderTensor
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty mat:hasMatrixSymType ;
+                                                                  owl:hasValue mat:Symmetric
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] .
+
 
 ###  https://purl.mechon.org/ont/mat#StressTensor
 mat:StressTensor rdf:type owl:Class ;
