@@ -1,0 +1,336 @@
+@prefix : <https://purl.mechon.org/demo/geo#> .
+@prefix ex: <https://purl.mechon.org/demo/geo#> .
+@prefix geo: <https://purl.mechon.org/ont/geo#> .
+@prefix mat: <https://purl.mechon.org/ont/mat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.mechon.org/demo/geo#> .
+
+<https://purl.mechon.org/demo/geo> rdf:type owl:Ontology ;
+                                    owl:imports <https://purl.mechon.org/ont/fluid/0.1.0>, 
+							<http://www.w3.org/2004/02/skos/core> ;
+                                    rdfs:label "MechOn Demo – Geo Domains"@en ,
+                                               "MechOn 示例 – 几何流域"@zh .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://purl.mechon.org/ont/geo#definedOn
+geo:definedOn rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.mechon.org/ont/geo#hasBoundaryPatch
+geo:hasBoundaryPatch rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.mechon.org/ont/geo#hasCoordinateSystem
+geo:hasCoordinateSystem rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.mechon.org/ont/geo#AirfoilDomain
+geo:AirfoilDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#CartesianCS
+geo:CartesianCS rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#CavityDomain
+geo:CavityDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#ChannelDomain
+geo:ChannelDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#CylindricalCS
+geo:CylindricalCS rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#FarfieldBoundary
+geo:FarfieldBoundary rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#FlatPlateDomain
+geo:FlatPlateDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#InletBoundary
+geo:InletBoundary rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#NozzleDomain
+geo:NozzleDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#OutletBoundary
+geo:OutletBoundary rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#PipeDomain
+geo:PipeDomain rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/geo#WallBoundary
+geo:WallBoundary rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/mat#Pressure
+mat:Pressure rdf:type owl:Class .
+
+
+###  https://purl.mechon.org/ont/mat#VelocityField
+mat:VelocityField rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://purl.mechon.org/demo/geo#AirfoilCS1
+ex:AirfoilCS1 rdf:type owl:NamedIndividual ,
+                       geo:CartesianCS ;
+              rdfs:label "Airfoil CS"@en .
+
+
+###  https://purl.mechon.org/demo/geo#AirfoilCase1
+ex:AirfoilCase1 rdf:type owl:NamedIndividual ,
+                         geo:AirfoilDomain ;
+                geo:hasBoundaryPatch ex:AirfoilFar1 ,
+                                     ex:AirfoilWall1 ;
+                geo:hasCoordinateSystem ex:AirfoilCS1 ;
+                rdfs:label "Demo airfoil external flow domain"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "演示翼型外流域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#AirfoilFar1
+ex:AirfoilFar1 rdf:type owl:NamedIndividual ,
+                        geo:FarfieldBoundary ;
+               rdfs:label "Airfoil farfield"@en .
+
+
+###  https://purl.mechon.org/demo/geo#AirfoilWall1
+ex:AirfoilWall1 rdf:type owl:NamedIndividual ,
+                         geo:WallBoundary ;
+                rdfs:label "Airfoil surface"@en .
+
+
+###  https://purl.mechon.org/demo/geo#CavityCS1
+ex:CavityCS1 rdf:type owl:NamedIndividual ,
+                      geo:CartesianCS ;
+             rdfs:label "Cavity CS (square)"@en .
+
+
+###  https://purl.mechon.org/demo/geo#CavityCase1
+ex:CavityCase1 rdf:type owl:NamedIndividual ,
+                        geo:CavityDomain ;
+               geo:hasBoundaryPatch ex:CavityWallBottom ,
+                                    ex:CavityWallLeft ,
+                                    ex:CavityWallMoving ,
+                                    ex:CavityWallRight ;
+               geo:hasCoordinateSystem ex:CavityCS1 ;
+               rdfs:label "Demo lid-driven cavity domain"@en ;
+               <http://www.w3.org/2004/02/skos/core#altLabel> "演示盖驱动腔域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#CavityWallBottom
+ex:CavityWallBottom rdf:type owl:NamedIndividual ,
+                             geo:WallBoundary ;
+                    rdfs:label "Bottom wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#CavityWallLeft
+ex:CavityWallLeft rdf:type owl:NamedIndividual ,
+                           geo:WallBoundary ;
+                  rdfs:label "Left wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#CavityWallMoving
+ex:CavityWallMoving rdf:type owl:NamedIndividual ,
+                             geo:WallBoundary ;
+                    rdfs:label "Moving lid"@en .
+
+
+###  https://purl.mechon.org/demo/geo#CavityWallRight
+ex:CavityWallRight rdf:type owl:NamedIndividual ,
+                            geo:WallBoundary ;
+                   rdfs:label "Right wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelCS1
+ex:ChannelCS1 rdf:type owl:NamedIndividual ,
+                       geo:CartesianCS ;
+              rdfs:label "Channel CS (x,y,z)"@en .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelCase1
+ex:ChannelCase1 rdf:type owl:NamedIndividual ,
+                         geo:ChannelDomain ;
+                geo:hasBoundaryPatch ex:ChannelInlet1 ,
+                                     ex:ChannelOutlet1 ,
+                                     ex:ChannelWallBot ,
+                                     ex:ChannelWallTop ;
+                geo:hasCoordinateSystem ex:ChannelCS1 ;
+                rdfs:label "Demo channel domain"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "演示通道域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelInlet1
+ex:ChannelInlet1 rdf:type owl:NamedIndividual ,
+                          geo:InletBoundary ;
+                 rdfs:label "Channel inlet"@en .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelOutlet1
+ex:ChannelOutlet1 rdf:type owl:NamedIndividual ,
+                           geo:OutletBoundary ;
+                  rdfs:label "Channel outlet"@en .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelWallBot
+ex:ChannelWallBot rdf:type owl:NamedIndividual ,
+                           geo:WallBoundary ;
+                  rdfs:label "Channel bottom wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#ChannelWallTop
+ex:ChannelWallTop rdf:type owl:NamedIndividual ,
+                           geo:WallBoundary ;
+                  rdfs:label "Channel top wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateCS1
+ex:FlatPlateCS1 rdf:type owl:NamedIndividual ,
+                         geo:CartesianCS ;
+                rdfs:label "Flat-plate CS"@en .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateCase1
+ex:FlatPlateCase1 rdf:type owl:NamedIndividual ,
+                           geo:FlatPlateDomain ;
+                  geo:hasBoundaryPatch ex:FlatPlateFar1 ,
+                                       ex:FlatPlateInlet1 ,
+                                       ex:FlatPlateOutlet1 ,
+                                       ex:FlatPlateWall1 ;
+                  geo:hasCoordinateSystem ex:FlatPlateCS1 ;
+                  rdfs:label "Demo flat-plate external flow domain"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "演示平板外流域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateFar1
+ex:FlatPlateFar1 rdf:type owl:NamedIndividual ,
+                          geo:FarfieldBoundary ;
+                 rdfs:label "Farfield outer boundary"@en .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateInlet1
+ex:FlatPlateInlet1 rdf:type owl:NamedIndividual ,
+                            geo:InletBoundary ;
+                   rdfs:label "Upstream inflow"@en .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateOutlet1
+ex:FlatPlateOutlet1 rdf:type owl:NamedIndividual ,
+                             geo:OutletBoundary ;
+                    rdfs:label "Downstream outflow"@en .
+
+
+###  https://purl.mechon.org/demo/geo#FlatPlateWall1
+ex:FlatPlateWall1 rdf:type owl:NamedIndividual ,
+                           geo:WallBoundary ;
+                  rdfs:label "Plate surface"@en .
+
+
+###  https://purl.mechon.org/demo/geo#NozzleCS1
+ex:NozzleCS1 rdf:type owl:NamedIndividual ,
+                      geo:CylindricalCS ;
+             rdfs:label "Nozzle CS (axisymmetric)"@en .
+
+
+###  https://purl.mechon.org/demo/geo#NozzleCase1
+ex:NozzleCase1 rdf:type owl:NamedIndividual ,
+                        geo:NozzleDomain ;
+               geo:hasBoundaryPatch ex:NozzleInlet1 ,
+                                    ex:NozzleOutlet1 ,
+                                    ex:NozzleWall1 ;
+               geo:hasCoordinateSystem ex:NozzleCS1 ;
+               rdfs:label "Demo nozzle domain"@en ;
+               <http://www.w3.org/2004/02/skos/core#altLabel> "演示喷管域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#NozzleInlet1
+ex:NozzleInlet1 rdf:type owl:NamedIndividual ,
+                         geo:InletBoundary ;
+                rdfs:label "Nozzle inlet"@en .
+
+
+###  https://purl.mechon.org/demo/geo#NozzleOutlet1
+ex:NozzleOutlet1 rdf:type owl:NamedIndividual ,
+                          geo:OutletBoundary ;
+                 rdfs:label "Nozzle exit"@en .
+
+
+###  https://purl.mechon.org/demo/geo#NozzleWall1
+ex:NozzleWall1 rdf:type owl:NamedIndividual ,
+                        geo:WallBoundary ;
+               rdfs:label "Nozzle wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#P_Pipe1
+ex:P_Pipe1 rdf:type owl:NamedIndividual ,
+                    mat:Pressure ;
+           geo:definedOn ex:PipeCase1 ;
+           rdfs:label "Pipe pressure field"@en .
+
+
+###  https://purl.mechon.org/demo/geo#PipeCS1
+ex:PipeCS1 rdf:type owl:NamedIndividual ,
+                    geo:CylindricalCS ;
+           rdfs:label "Pipe CS (r,θ,z)"@en .
+
+
+###  https://purl.mechon.org/demo/geo#PipeCase1
+ex:PipeCase1 rdf:type owl:NamedIndividual ,
+                      geo:PipeDomain ;
+             geo:hasBoundaryPatch ex:PipeInlet1 ,
+                                  ex:PipeOutlet1 ,
+                                  ex:PipeWall1 ;
+             geo:hasCoordinateSystem ex:PipeCS1 ;
+             rdfs:label "Demo pipe domain"@en ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "演示管道域"@zh .
+
+
+###  https://purl.mechon.org/demo/geo#PipeInlet1
+ex:PipeInlet1 rdf:type owl:NamedIndividual ,
+                       geo:InletBoundary ;
+              rdfs:label "Pipe inlet"@en .
+
+
+###  https://purl.mechon.org/demo/geo#PipeOutlet1
+ex:PipeOutlet1 rdf:type owl:NamedIndividual ,
+                        geo:OutletBoundary ;
+               rdfs:label "Pipe outlet"@en .
+
+
+###  https://purl.mechon.org/demo/geo#PipeWall1
+ex:PipeWall1 rdf:type owl:NamedIndividual ,
+                      geo:WallBoundary ;
+             rdfs:label "Pipe wall"@en .
+
+
+###  https://purl.mechon.org/demo/geo#U_Pipe1
+ex:U_Pipe1 rdf:type owl:NamedIndividual ,
+                    mat:VelocityField ;
+           geo:definedOn ex:PipeCase1 ;
+           rdfs:label "Pipe velocity field"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
