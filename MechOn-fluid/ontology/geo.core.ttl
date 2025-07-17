@@ -49,11 +49,18 @@ geo:isBoundaryPatchOf rdf:type owl:ObjectProperty ;
 
 ###  https://purl.mechon.org/ont/geo#AirfoilDomain
 geo:AirfoilDomain rdf:type owl:Class ;
-                  rdfs:subClassOf geo:Domain ,
+                  rdfs:subClassOf geo:ExternalFlowDomain ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty geo:hasBoundaryPatch ;
+                                    owl:someValuesFrom geo:WallBoundary
+                                  ] ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty geo:hasCoordinateSystem ;
                                     owl:someValuesFrom geo:CartesianCS
-                                  ] .
+                                  ] ;
+                  rdfs:comment "External aerodynamics around an airfoil; includes airfoil wall and farfield boundary."@en ;
+                  rdfs:label "Airfoil flow domain"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "翼型外流域"@zh .
 
 
 ###  https://purl.mechon.org/ont/geo#BoundaryPatch
@@ -70,18 +77,28 @@ geo:CartesianCS rdf:type owl:Class ;
 geo:CavityDomain rdf:type owl:Class ;
                  rdfs:subClassOf geo:Domain ,
                                  [ rdf:type owl:Restriction ;
+                                   owl:onProperty geo:hasBoundaryPatch ;
+                                   owl:someValuesFrom geo:WallBoundary
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty geo:hasCoordinateSystem ;
                                    owl:someValuesFrom geo:CartesianCS
-                                 ] .
+                                 ] ;
+                 rdfs:comment "Closed cavity (e.g., lid-driven cavity); all walls, no inlet/outlet."@en ;
+                 rdfs:label "Cavity flow domain"@en ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "腔体流域"@zh .
 
 
 ###  https://purl.mechon.org/ont/geo#ChannelDomain
 geo:ChannelDomain rdf:type owl:Class ;
-                  rdfs:subClassOf geo:Domain ,
+                  rdfs:subClassOf geo:InternalFlowDomain ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty geo:hasCoordinateSystem ;
                                     owl:someValuesFrom geo:CartesianCS
-                                  ] .
+                                  ] ;
+                  rdfs:comment "Parallel-wall internal channel; Cartesian coordinates typical."@en ;
+                  rdfs:label "Channel flow domain"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "通道流域"@zh .
 
 
 ###  https://purl.mechon.org/ont/geo#CoordinateSystem
@@ -125,11 +142,18 @@ geo:FarfieldBoundary rdf:type owl:Class ;
 
 ###  https://purl.mechon.org/ont/geo#FlatPlateDomain
 geo:FlatPlateDomain rdf:type owl:Class ;
-                    rdfs:subClassOf geo:Domain ,
+                    rdfs:subClassOf geo:ExternalFlowDomain ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty geo:hasBoundaryPatch ;
+                                      owl:someValuesFrom geo:WallBoundary
+                                    ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty geo:hasCoordinateSystem ;
                                       owl:someValuesFrom geo:CartesianCS
-                                    ] .
+                                    ] ;
+                    rdfs:comment "External flow over a flat plate; includes wall (plate surface) and farfield boundary."@en ;
+                    rdfs:label "Flat-plate flow domain"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "平板外流域"@zh .
 
 
 ###  https://purl.mechon.org/ont/geo#InletBoundary
@@ -186,11 +210,14 @@ geo:NoSlipWallBoundary rdf:type owl:Class ;
 
 ###  https://purl.mechon.org/ont/geo#NozzleDomain
 geo:NozzleDomain rdf:type owl:Class ;
-                 rdfs:subClassOf geo:Domain ,
+                 rdfs:subClassOf geo:InternalFlowDomain ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty geo:hasCoordinateSystem ;
                                    owl:someValuesFrom geo:CylindricalCS
-                                 ] .
+                                 ] ;
+                 rdfs:comment "Converging/diverging internal duct; at least inlet, outlet, and wall; usually axisymmetric."@en ;
+                 rdfs:label "Nozzle flow domain"@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "喷管流域"@zh .
 
 
 ###  https://purl.mechon.org/ont/geo#OutletBoundary
