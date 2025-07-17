@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://purl.mechon.org/ont/calc/0.1.0" uri="calc.core.ttl"/>
     <uri id="User Entered Import Resolution" name="https://purl.mechon.org/ont/mat/0.1.0" uri="mat.core.ttl"/>
     <uri id="Imports Wizard Entry" name="https://purl.mechon.org/ont/phy/0.1.0" uri="phy.core.ttl"/>
     <uri id="Imports Wizard Entry" name="https://purl.org/mechon/ont/mat/0.1.0" uri="mat.core.ttl"/>
