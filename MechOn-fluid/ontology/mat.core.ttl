@@ -8,7 +8,8 @@
 @base <https://purl.mechon.org/ont/mat#> .
 
 <https://purl.mechon.org/ont/mat> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://purl.mechon.org/ont/mat/0.1.0> .
+                                   owl:versionIRI <https://purl.mechon.org/ont/mat/0.1.0> ;
+                                   owl:imports <http://www.w3.org/2004/02/skos/core> .
 
 #################################################################
 #    Annotation properties
@@ -138,16 +139,48 @@ mat:SecondOrderTensor rdf:type owl:Class ;
                       rdfs:label "Matrix Tensor"@en .
 
 
+###  https://purl.mechon.org/ont/mat#StrainRateField
+mat:StrainRateField rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( mat:Field
+                                                               mat:StrainRateTensor
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:label "Strain-rate field"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "应变率场"@zh .
+
+
 ###  https://purl.mechon.org/ont/mat#StrainRateTensor
 mat:StrainRateTensor rdf:type owl:Class ;
-		owl:equivalentClass [owl:intersectionOf ( mat:SecondOrderTensor
-								[rdf:type owl:Restriction ;
-								  owl:onProperty mat:hasMatrixSymType ;
-								  owl:hasValue mat:Symmetric ] ) ] .
+                     owl:equivalentClass [ owl:intersectionOf ( mat:SecondOrderTensor
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty mat:hasMatrixSymType ;
+                                                                  owl:hasValue mat:Symmetric
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:comment "Rate of deformation D_ij = (∂u_i/∂x_j + ∂u_j/∂x_i)/2"@en ;
+                     rdfs:label "Strain-rate tensor"@en ;
+                     <http://www.w3.org/2004/02/skos/core#altLabel> "应变率张量"@zh .
+
+
+###  https://purl.mechon.org/ont/mat#StressField
+mat:StressField rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( mat:Field
+                                                           mat:StressTensor
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:label "Stress field"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "应力场"@zh .
+
 
 ###  https://purl.mechon.org/ont/mat#StressTensor
 mat:StressTensor rdf:type owl:Class ;
-                 rdfs:subClassOf mat:SymmetricTensor .
+                 rdfs:subClassOf mat:SymmetricTensor ;
+                 rdfs:label "Stress Tensor"@en ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "应力"@zh .
 
 
 ###  https://purl.mechon.org/ont/mat#SymmetricTensor
@@ -197,7 +230,9 @@ mat:VelocityField rdf:type owl:Class ;
                                                              mat:VelocityVector
                                                            ) ;
                                         rdf:type owl:Class
-                                      ] .
+                                      ] ;
+                  rdfs:label "Velocity field"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "速度场"@zh .
 
 
 ###  https://purl.mechon.org/ont/mat#VelocityVector
@@ -210,9 +245,22 @@ mat:Viscosity rdf:type owl:Class ;
               rdfs:subClassOf mat:ZeroOrderTensor .
 
 
+###  https://purl.mechon.org/ont/mat#VorticityField
+mat:VorticityField rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( mat:Field
+                                                              mat:VorticityTensor
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:label "Vorticity field"@en ;
+                   <http://www.w3.org/2004/02/skos/core#altLabel> "旋转率场"@zh .
+
+
 ###  https://purl.mechon.org/ont/mat#VorticityTensor
 mat:VorticityTensor rdf:type owl:Class ;
-                    rdfs:subClassOf mat:AntiSymmetricTensor .
+                    rdfs:subClassOf mat:AntiSymmetricTensor ;
+                    rdfs:label "Vorticity Tensor"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "旋转率张量"@zh .
 
 
 ###  https://purl.mechon.org/ont/mat#ZeroOrderTensor
