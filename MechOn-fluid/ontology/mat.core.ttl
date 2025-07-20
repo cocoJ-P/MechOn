@@ -5,11 +5,13 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix phy: <https://purl.mechon.org/ont/phy#> .
 @base <https://purl.mechon.org/ont/mat#> .
 
 <https://purl.mechon.org/ont/mat> rdf:type owl:Ontology ;
                                    owl:versionIRI <https://purl.mechon.org/ont/mat/0.1.0> ;
-                                   owl:imports <http://www.w3.org/2004/02/skos/core> .
+                                   owl:imports <http://www.w3.org/2004/02/skos/core> ,
+                                               <https://purl.mechon.org/ont/phy/0.1.0> .
 
 #################################################################
 #    Annotation properties
@@ -63,21 +65,30 @@ mat:AntiSymmetricTensor rdf:type owl:Class ;
 ###  https://purl.mechon.org/ont/mat#Compressibility
 mat:Compressibility rdf:type owl:Class ;
                     rdfs:subClassOf mat:ZeroOrderTensor .
+mat:Compressibility rdfs:subClassOf phy:DerivedQuantity  ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:PressureScalar ] ;
+    rdfs:comment "Isothermal compressibility β = -(1/V)(∂V/∂p)"@en .
 
 
 ###  https://purl.mechon.org/ont/mat#Density
 mat:Density rdf:type owl:Class ;
             rdfs:subClassOf mat:ZeroOrderTensor .
-
+mat:Density rdfs:subClassOf phy:PhysicalQuantity .
 
 ###  https://purl.mechon.org/ont/mat#DynamicViscosity
 mat:DynamicViscosity rdf:type owl:Class ;
                      rdfs:subClassOf mat:Viscosity .
+mat:DynamicViscosity rdfs:subClassOf phy:PhysicalQuantity .
+
 
 
 ###  https://purl.mechon.org/ont/mat#Entropy
 mat:Entropy rdf:type owl:Class ;
             rdfs:subClassOf mat:ZeroOrderTensor .
+mat:Entropy rdfs:subClassOf phy:DerivedQuantity ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:Density ] ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:TemperatureScalar ] ;
+    rdfs:comment "Specific entropy as function of ρ and T"@en .
 
 
 ###  https://purl.mechon.org/ont/mat#Field
@@ -100,16 +111,28 @@ mat:FirstOrderTensor rdf:type owl:Class ;
 ###  https://purl.mechon.org/ont/mat#InternalEnergy
 mat:InternalEnergy rdf:type owl:Class ;
                    rdfs:subClassOf mat:ZeroOrderTensor .
+mat:InternalEnergy rdfs:subClassOf phy:DerivedQuantity ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:Density ] ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:TemperatureScalar ] ;
+    rdfs:comment "Specific internal energy as function of ρ and T"@en .
 
 
 ###  https://purl.mechon.org/ont/mat#KinematicViscosity
 mat:KinematicViscosity rdf:type owl:Class ;
                        rdfs:subClassOf mat:Viscosity .
+mat:KinematicViscosity rdfs:subClassOf phy:DerivedQuantity ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:DynamicViscosity ] ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:Density ] ;
+    rdfs:comment "Kinematic viscosity ν = μ / ρ"@en .
 
 
 ###  https://purl.mechon.org/ont/mat#KineticEnergy
 mat:KineticEnergy rdf:type owl:Class ;
                   rdfs:subClassOf mat:ZeroOrderTensor .
+mat:KineticEnergy rdfs:subClassOf phy:DerivedQuantity ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:Density ] ,
+    [ a owl:Restriction ; owl:onProperty phy:derivedFrom ; owl:someValuesFrom mat:VelocityVector ] ;
+    rdfs:comment "Volumetric kinetic energy density k = ½ ρ‖u‖²"@en .
 
 
 ###  https://purl.mechon.org/ont/mat#MatrixSymType
@@ -122,9 +145,11 @@ mat:MatrixSymType rdf:type owl:Class ;
                                       ] .
 
 
-###  https://purl.mechon.org/ont/mat#Pressure
-mat:Pressure rdf:type owl:Class ;
-             rdfs:subClassOf mat:ZeroOrderTensor .
+###  https://purl.mechon.org/ont/mat#PressureScalar
+mat:PressureScalar rdf:type owl:Class ;
+                   rdfs:subClassOf mat:ZeroOrderTensor .
+mat:PressureScalar rdfs:subClassOf phy:PhysicalQuantity .
+
 
 
 ###  https://purl.mechon.org/ont/mat#SecondOrderTensor
@@ -205,9 +230,10 @@ mat:SymmetryType rdf:type owl:Class ;
                                      ] .
 
 
-###  https://purl.mechon.org/ont/mat#Temperature
-mat:Temperature rdf:type owl:Class ;
-                rdfs:subClassOf mat:ZeroOrderTensor .
+###  https://purl.mechon.org/ont/mat#TemperatureScalar
+mat:TemperatureScalar rdf:type owl:Class ;
+                      rdfs:subClassOf mat:ZeroOrderTensor .
+mat:TemperatureScalar rdfs:subClassOf phy:PhysicalQuantity .
 
 
 ###  https://purl.mechon.org/ont/mat#Tensor
@@ -217,12 +243,13 @@ mat:Tensor rdf:type owl:Class .
 ###  https://purl.mechon.org/ont/mat#ThermalConductivity
 mat:ThermalConductivity rdf:type owl:Class ;
                         rdfs:subClassOf mat:ZeroOrderTensor .
+mat:ThermalConductivity rdfs:subClassOf phy:DerivedQuantity .
 
 
 ###  https://purl.mechon.org/ont/mat#ThermalExpansion
 mat:ThermalExpansion rdf:type owl:Class ;
                      rdfs:subClassOf mat:ZeroOrderTensor .
-
+mat:ThermalExpansion rdfs:subClassOf phy:DerivedQuantity .
 
 ###  https://purl.mechon.org/ont/mat#VelocityField
 mat:VelocityField rdf:type owl:Class ;

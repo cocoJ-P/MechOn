@@ -8,7 +8,20 @@
 @base <https://purl.mechon.org/ont/phy#> .
 
 <https://purl.mechon.org/ont/phy> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://purl.mechon.org/ont/phy/0.1.0> .
+                                   owl:versionIRI <https://purl.mechon.org/ont/phy/0.1.0> ;
+                                   owl:imports <http://www.w3.org/2004/02/skos/core> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.mechon.org/ont/phy#derivedFrom
+phy:derivedFrom rdf:type owl:ObjectProperty ;
+                rdfs:domain phy:DerivedQuantity ;
+                rdfs:range phy:PhysicalQuantity ;
+                rdfs:label "derived from"@en ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "源于"@zh .
+
 
 #################################################################
 #    Data properties
@@ -16,6 +29,10 @@
 
 ###  https://purl.mechon.org/ont/phy#hasDimension
 phy:hasDimension rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.mechon.org/ont/phy#hasFormula
+phy:hasFormula rdf:type owl:DatatypeProperty .
 
 
 ###  https://purl.mechon.org/ont/phy#hasUnit
@@ -32,7 +49,9 @@ phy:DerivedQuantity rdf:type owl:Class ;
 
 
 ###  https://purl.mechon.org/ont/phy#PhysicalQuantity
-phy:PhysicalQuantity rdf:type owl:Class .
+phy:PhysicalQuantity rdf:type owl:Class ;
+                     rdfs:comment "Observable property with dimension and unit."@en ;
+                     rdfs:label "Physical quantity"@en .
 
 
 ###  https://purl.mechon.org/ont/phy#ReynoldsNumber

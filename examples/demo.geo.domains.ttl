@@ -146,6 +146,8 @@ ex:CavityWallBottom rdf:type owl:NamedIndividual ,
                              geo:WallBoundary ;
                     rdfs:label "Bottom wall"@en .
 
+ex:sigma_Pipe1 a mat:StressTensor ;
+    geo:definedOn ex:PipeCase1 .
 
 ###  https://purl.mechon.org/demo/geo#CavityWallLeft
 ex:CavityWallLeft rdf:type owl:NamedIndividual ,
