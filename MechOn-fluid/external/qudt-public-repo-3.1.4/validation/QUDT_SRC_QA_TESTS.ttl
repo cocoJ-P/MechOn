@@ -1,0 +1,29 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qfn: <http://qudt.org/shacl/functions#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+<http://qudt.org/3.1.4/collection/qa/src>
+  a owl:Ontology ;
+  owl:imports <http://qudt.org/3.1.4/collection/usertest> ;
+  owl:imports <http://qudt.org/3.1.4/vocab/constant> ;
+  owl:imports <http://qudt.org/3.1.4/vocab/soqk> ;
+  owl:imports qfn: ;
+  rdfs:isDefinedBy <http://qudt.org/3.1.4/collection/qa/src> ;
+  rdfs:label "QUDT Collection - QA TESTS - SRC - v 3.1.4" .
+
+qudt:NoApplicableUnitsInSrc
+  a sh:NodeShape ;
+  rdfs:isDefinedBy <http://qudt.org/3.1.4/collection/qa/all> ;
+  sh:message "QuantityKind in src folder must not have any qudt:applicableUnits triples." ;
+  sh:property [
+    sh:maxCount 0 ;
+    sh:path qudt:applicableUnit ;
+  ] ;
+  sh:severity sh:Violation ;
+  sh:targetClass qudt:QuantityKind .
+
+
