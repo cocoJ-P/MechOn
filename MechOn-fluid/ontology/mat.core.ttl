@@ -151,7 +151,6 @@ mat:PressureScalar rdf:type owl:Class ;
 mat:PressureScalar rdfs:subClassOf phy:PhysicalQuantity .
 
 
-
 ###  https://purl.mechon.org/ont/mat#SecondOrderTensor
 mat:SecondOrderTensor rdf:type owl:Class ;
                       rdfs:subClassOf mat:Tensor ,
