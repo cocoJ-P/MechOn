@@ -1,0 +1,61 @@
+###############################################################################
+#  File: examples/demo.physical.ttl
+#  Role: sample ABox – numeric values + units (PipeCase1)
+###############################################################################
+
+@prefix ex:         <https://purl.mechon.org/demo/physical#> .
+@prefix geo:        <https://purl.mechon.org/ont/geo#> .
+@prefix mat:        <https://purl.mechon.org/ont/mat#> .
+@prefix phy:        <https://purl.mechon.org/ont/phy#> .
+@prefix qudtunit:   <http://qudt.org/vocab/unit/> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+<https://purl.mechon.org/demo3> a owl:Ontology ;
+    owl:imports <https://purl.mechon.org/ont/fluid/0.1.0> .
+
+###############################################################################
+#  Link to existing domain
+###############################################################################
+
+# PipeCase1 comes from demo.geo.domains.ttl; no need to redefine
+# ex:PipeCase1  a geo:PipeDomain .
+
+###############################################################################
+#  Pressure field (absolute) – 101 325 Pa
+###############################################################################
+
+ex:P_Pipe1  a mat:PressureScalar ;
+    phy:hasNumericValue  "101325"^^xsd:double ;
+    phy:hasUnit          qudtunit:PA ;
+    geo:definedOn        ex:PipeCase1 ;
+    rdfs:label           "Pipe pressure (abs)"@en .
+
+###############################################################################
+#  Density – 1.225 kg/m³
+###############################################################################
+
+ex:rho_Pipe1  a mat:Density ;
+    phy:hasNumericValue  "1.225"^^xsd:double ;
+    phy:hasUnit          qudtunit:KiloGM-PER-M3 ;   # kg/m³
+#    geo:definedOn        ex:PipeCase1 ;
+    rdfs:label           "Pipe density"@en .
+
+###############################################################################
+#  Temperature – 288.15 K
+###############################################################################
+
+ex:T_Pipe1  a mat:TemperatureScalar ;
+    phy:hasNumericValue  "288.15"^^xsd:double ;
+    phy:hasUnit          qudtunit:KELVIN ;
+#    geo:definedOn        ex:PipeCase1 ;
+    rdfs:label           "Pipe temperature"@en .
+
+###############################################################################
+#  Dynamic viscosity – 1.81 ×10⁻⁵ Pa·s
+###############################################################################
+
+ex:mu_Pipe1  a mat:DynamicViscosity ;
+    phy:hasNumericValue  "1.81e-5"^^xsd:double ;
+    phy:hasUnit          qudtunit:PA-SEC ;          # Pa·s
+#    geo:definedOn        ex:PipeCase1 ;
+    rdfs:label           "Pipe dynamic viscosity"@en .
