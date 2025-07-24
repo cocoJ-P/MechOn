@@ -2,6 +2,11 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudtunit: <http://qudt.org/vocab/unit/> .
+@prefix : <https://purl.mechon.org/ont/bridge/qk-bridge#> .
+
+# Stub file
+<https://purl.mechon.org/ont/bridge/qk-bridge> rdf:type owl:Ontology ;
+                                   owl:versionIRI <https://purl.mechon.org/ont/bridge/qk-bridge/0.1.0> .
 
 qudtqk:APIGravity a qudt:QuantityKind .
 

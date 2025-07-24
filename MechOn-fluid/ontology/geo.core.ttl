@@ -9,8 +9,8 @@
 @base <https://purl.mechon.org/ont/geo#> .
 
 <https://purl.mechon.org/ont/geo> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://purl.mechon.org/ont/geo/0.1.0> ;
-                                   owl:imports <http://www.w3.org/2004/02/skos/core> .
+                                   owl:versionIRI <https://purl.mechon.org/ont/geo/0.1.0> .
+#                                   owl:imports <http://www.w3.org/2004/02/skos/core> .
 
 #################################################################
 #    Object Properties

@@ -9,9 +9,9 @@
 @base <https://purl.mechon.org/ont/mat#> .
 
 <https://purl.mechon.org/ont/mat> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://purl.mechon.org/ont/mat/0.1.0> ;
-                                   owl:imports <http://www.w3.org/2004/02/skos/core> ,
-                                               <https://purl.mechon.org/ont/phy/0.1.0> .
+                                   owl:versionIRI <https://purl.mechon.org/ont/mat/0.1.0> .
+#                                   owl:imports <http://www.w3.org/2004/02/skos/core> ,
+#                                               <https://purl.mechon.org/ont/phy/0.1.0> .
 
 #################################################################
 #    Annotation properties
