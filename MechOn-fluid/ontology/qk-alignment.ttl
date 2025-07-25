@@ -12,12 +12,6 @@
 <https://purl.mechon.org/ont/bridge/qk-alignment> rdf:type owl:Ontology ;
                                                    owl:versionIRI <https://purl.mechon.org/ont/bridge/qk-alignment/0.1.0> .
 
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind
-phy:refersToQUDTQuantityKind rdf:type owl:AnnotationProperty .
 
 
 #################################################################

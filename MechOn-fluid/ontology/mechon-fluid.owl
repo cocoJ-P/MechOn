@@ -8,19 +8,11 @@
 
 <https://purl.mechon.org/ont/fluid> rdf:type owl:Ontology ;
                                      owl:versionIRI <https://purl.mechon.org/ont/fluid/0.1.0> ;
-                                     owl:imports <https://purl.mechon.org/ont/bridge/qk-bridge/0.1.0> ,
-                                                 <https://purl.mechon.org/ont/calc/0.1.0> ,
+                                     owl:imports <https://purl.mechon.org/ont/calc/0.1.0> ,
                                                  <https://purl.mechon.org/ont/geo/0.1.0> ,
                                                  <https://purl.mechon.org/ont/mat/0.1.0> ,
-                                                 <https://purl.mechon.org/ont/phy/0.1.0> .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind
-<https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> rdfs:range <http://qudt.org/schema/qudt/QuantityKind> .
-
+                                                 <https://purl.mechon.org/ont/phy/0.1.0> ,
+                                                 <https://purl.mechon.org/ont/unit-constraints/0.1.0> .
 
 #################################################################
 #    Object Properties
@@ -35,65 +27,8 @@
 <https://purl.mechon.org/ont/phy#hasUnit> rdfs:range <http://qudt.org/schema/qudt/Unit> .
 
 
-#################################################################
-#    Individuals
-#################################################################
-
-###  https://purl.mechon.org/ont/mat#Compressibility
-<https://purl.mechon.org/ont/mat#Compressibility> rdf:type owl:NamedIndividual ;
-                                                  <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/Compressibility> .
-
-
-###  https://purl.mechon.org/ont/mat#Density
-<https://purl.mechon.org/ont/mat#Density> rdf:type owl:NamedIndividual ;
-                                          <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/MassDensity> .
-
-
-###  https://purl.mechon.org/ont/mat#DynamicViscosity
-<https://purl.mechon.org/ont/mat#DynamicViscosity> rdf:type owl:NamedIndividual ;
-                                                   <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/DynamicViscosity> .
-
-
-###  https://purl.mechon.org/ont/mat#Entropy
-<https://purl.mechon.org/ont/mat#Entropy> rdf:type owl:NamedIndividual ;
-                                          <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/Entropy> .
-
-
-###  https://purl.mechon.org/ont/mat#InternalEnergy
-<https://purl.mechon.org/ont/mat#InternalEnergy> rdf:type owl:NamedIndividual ;
-                                                 <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/Energy> .
-
-
-###  https://purl.mechon.org/ont/mat#KinematicViscosity
-<https://purl.mechon.org/ont/mat#KinematicViscosity> rdf:type owl:NamedIndividual ;
-                                                     <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/KinematicViscosity> .
-
-
-###  https://purl.mechon.org/ont/mat#KineticEnergy
-<https://purl.mechon.org/ont/mat#KineticEnergy> rdf:type owl:NamedIndividual ;
-                                                <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/Energy> .
-
-
-###  https://purl.mechon.org/ont/mat#PressureScalar
-<https://purl.mechon.org/ont/mat#PressureScalar> rdf:type owl:NamedIndividual ;
-                                                 <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/Pressure> .
-
-
-###  https://purl.mechon.org/ont/mat#TemperatureScalar
-<https://purl.mechon.org/ont/mat#TemperatureScalar> rdf:type owl:NamedIndividual ;
-                                                    <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/ThermodynamicTemperature> .
-
-
-###  https://purl.mechon.org/ont/mat#ThermalConductivity
-<https://purl.mechon.org/ont/mat#ThermalConductivity> rdf:type owl:NamedIndividual ;
-                                                      <https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> <http://qudt.org/vocab/quantitykind/ThermalConductivity> .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-<https://purl.mechon.org/ont/geo#definedOn> rdfs:comment "面向方程建模，强调物理场属于某个 Domain（如 Navier-Stokes 方程作用区域）"@zh .
+###  https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind
+<https://purl.mechon.org/ont/phy#refersToQUDTQuantityKind> rdfs:range <http://qudt.org/schema/qudt/QuantityKind> .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

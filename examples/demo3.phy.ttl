@@ -26,7 +26,7 @@
 
 ex:P_Pipe1  a mat:PressureScalar ;
     phy:hasNumericValue  "101325"^^xsd:double ;
-    phy:hasUnit          qudtunit:PA ;
+    phy:hasUnit          qudtunit:KiloGM-PER-M3 ; #PA
     geo:definedOn        ex:PipeCase1 ;
     rdfs:label           "Pipe pressure (abs)"@en .
 
@@ -37,7 +37,7 @@ ex:P_Pipe1  a mat:PressureScalar ;
 ex:rho_Pipe1  a mat:Density ;
     phy:hasNumericValue  "1.225"^^xsd:double ;
     phy:hasUnit          qudtunit:KiloGM-PER-M3 ;   # kg/m³
-#    geo:definedOn        ex:PipeCase1 ;
+    geo:definedOn        ex:PipeCase1 ;
     rdfs:label           "Pipe density"@en .
 
 ###############################################################################
@@ -47,7 +47,7 @@ ex:rho_Pipe1  a mat:Density ;
 ex:T_Pipe1  a mat:TemperatureScalar ;
     phy:hasNumericValue  "288.15"^^xsd:double ;
     phy:hasUnit          qudtunit:KELVIN ;
-#    geo:definedOn        ex:PipeCase1 ;
+    geo:definedOn        ex:PipeCase1 ;
     rdfs:label           "Pipe temperature"@en .
 
 ###############################################################################
@@ -57,5 +57,5 @@ ex:T_Pipe1  a mat:TemperatureScalar ;
 ex:mu_Pipe1  a mat:DynamicViscosity ;
     phy:hasNumericValue  "1.81e-5"^^xsd:double ;
     phy:hasUnit          qudtunit:PA-SEC ;          # Pa·s
-#    geo:definedOn        ex:PipeCase1 ;
+    geo:definedOn        ex:PipeCase1 ;
     rdfs:label           "Pipe dynamic viscosity"@en .

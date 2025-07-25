@@ -1,0 +1,17 @@
+@prefix ex:   <https://purl.mechon.org/demo/error#> .
+@prefix mat:  <https://purl.mechon.org/ont/mat#> .
+@prefix phy:  <https://purl.mechon.org/ont/phy#> .
+@prefix qudtunit: <http://qudt.org/vocab/unit/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+
+<https://purl.mechon.org/demo4> a owl:Ontology ;
+    owl:imports <https://purl.mechon.org/ont/fluid/0.1.0> .
+
+# 错误：PressureScalar 却用 Kelvin 单位
+ex:P_wrong a mat:PressureScalar ;
+    phy:hasUnit qudtunit:KELVIN .
+
+# 错误：TemperatureScalar 用 Pa 单位
+ex:T_wrong a mat:TemperatureScalar ;
+    phy:hasUnit qudtunit:PA .

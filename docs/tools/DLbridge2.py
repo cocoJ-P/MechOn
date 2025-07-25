@@ -1,4 +1,4 @@
-from rdflib import Graph, Namespace, RDF, RDFS
+from rdflib import Graph, Namespace, RDF, RDFS, OWL
 
 # === 路径 ===
 SRC_QK_FILE  = "MechOn-fluid/external/qudt-public-repo-3.1.4/vocab/quantitykinds/VOCAB_QUDT-QUANTITY-KINDS-ALL.ttl"        # QUDT -QK 原文件
@@ -21,9 +21,8 @@ bridge.bind("qudtqk",   QK)
 bridge.bind("qudtunit", UNIT)
 
 # 1) 壳类，保持 DL
-OWL_CLASS = RDF.type, RDF["type"]  # shorthand
-bridge.add((QUDT.QuantityKind, RDF.type, OWL_CLASS[1]))
-bridge.add((QUDT.Unit,          RDF.type, OWL_CLASS[1]))
+bridge.add((QUDT.QuantityKind, RDF.type, OWL.Class))
+bridge.add((QUDT.Unit,          RDF.type, OWL.Class))
 
 # 2) 遍历 QuantityKind 并复制映射
 for qk_indiv in g_qk.subjects(RDF.type, QUDT.QuantityKind):

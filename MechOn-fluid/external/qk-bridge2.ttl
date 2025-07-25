@@ -1,7 +1,7 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix qudtqk: <http://qudt.org/vocab/quantitykind/> .
 @prefix qudtunit: <http://qudt.org/vocab/unit/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 qudtqk:APIGravity a qudt:QuantityKind ;
@@ -32464,7 +32464,8 @@ qudtunit:NUM a qudt:Unit ;
 qudtunit:UNITLESS a qudt:Unit ;
     rdfs:label "Unitless"@en .
 
-qudt:QuantityKind a rdf:type .
+qudt:QuantityKind a owl:Class .
 
-qudt:Unit a rdf:type .
+qudt:Unit a owl:Class .
 
+qudt:applicableUnit a owl:ObjectProperty .

@@ -1,0 +1,43 @@
+@prefix :          <https://purl.mechon.org/ont/unit-constraints#> .
+@prefix owl:       <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qudt:      <http://qudt.org/schema/qudt/> .
+@prefix qudtunit:  <http://qudt.org/vocab/unit/> .
+@prefix mat:       <https://purl.mechon.org/ont/mat#> .
+@prefix phy:       <https://purl.mechon.org/ont/phy#> .
+@prefix qudtqk:    <http://qudt.org/vocab/quantitykind/> .
+
+<https://purl.mechon.org/ont/unit-constraints> a owl:Ontology ;
+    owl:versionIRI <https://purl.mechon.org/ont/unit-constraints/0.1.0> .
+
+#################################################################
+#  A.  Pressure  —  unit 列举
+#################################################################
+:PressureUnit  a owl:Class ;
+    owl:oneOf ( qudtunit:PA          # Pascal
+                qudtunit:BAR         # Bar
+                qudtunit:PSI         # Pound per square inch
+              ) ;
+    rdfs:label "unit of pressure"@en .
+
+mat:PressureScalar
+    rdfs:subClassOf
+        [ a owl:Restriction ;
+          owl:onProperty  phy:hasUnit ;
+          owl:allValuesFrom :PressureUnit ] .
+
+#################################################################
+#  B.  Temperature  —  unit 列举
+#################################################################
+:TemperatureUnit  a owl:Class ;
+    owl:oneOf ( qudtunit:KELVIN
+                qudtunit:DEG_C
+                qudtunit:DEG_F
+              ) ;
+    rdfs:label "unit of temperature"@en .
+
+mat:TemperatureScalar
+    rdfs:subClassOf
+        [ a owl:Restriction ;
+          owl:onProperty  phy:hasUnit ;
+          owl:allValuesFrom :TemperatureUnit ] .
