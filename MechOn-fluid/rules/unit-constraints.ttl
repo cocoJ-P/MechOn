@@ -19,6 +19,7 @@
                 qudtunit:PSI         # Pound per square inch
               ) ;
     rdfs:label "unit of pressure"@en .
+:PressureUnit owl:disjointWith :TemperatureUnit .
 
 mat:PressureScalar
     rdfs:subClassOf
